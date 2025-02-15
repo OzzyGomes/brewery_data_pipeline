@@ -2,3 +2,4 @@ loguru
 pyspark
 geopy
 prefect
+delta-spark
