@@ -135,7 +135,18 @@ The pipeline can be executed in two ways:
 ## Code Structure
 
 brewery_data_pipeline/
-├──
+├── Pipeline_Databricks
+├──Pipeline_Databricks
+    │   Bronze_Layer.ipynb
+    │   Gold_Layer.ipynb
+    │   pipeline_functions.ipynb
+    │   Silver_Layer.ipynb
+    │
+    └───Docs
+            Bronze_Layer.md
+            Gold_Layer.md
+            pipeline_functions.md
+            Silver_Layer.md
 ├── pipeline_functions.py  # Funções reutilizáveis do pipeline (API, salvar Delta)
 ├── bronze_pipeline.py     # Script Python para a camada Bronze (extração da API, save raw data)
 ├── silver_pipeline.py     # Script Python para a camada Prata (transformações, limpeza, partição)
