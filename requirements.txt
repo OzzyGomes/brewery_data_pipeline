@@ -1,2 +1,4 @@
 loguru
 pyspark
+geopy
+prefect

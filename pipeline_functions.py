@@ -36,7 +36,10 @@ from loguru import logger
 import requests
 import logging
 from datetime import datetime
+from pyspark.sql import SparkSession
 
+
+spark = SparkSession.builder.appName("BronzePipeline").getOrCreate()
 # Configuração do logger
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -212,7 +215,7 @@ def save_df_to_bronze(df: DataFrame, path: str = '/dbfs/FileStore/bronze') -> No
     try:
         
         logging.debug("DataFrame criado a partir dos dados.")
-        raw_breweries_df.write.format("delta").mode("overwrite").save(dbfs_file_path)
+        DataFrame.write.format("delta").mode("overwrite").save(dbfs_file_path)
         logging.info(f"Dados salvos com sucesso no DBFS em: {dbfs_file_path}") # Mensagem de sucesso via log
     except Exception as e:
         logging.error(f"Erro ao salvar dados no DBFS em: {dbfs_file_path}: {e}") # Mensagem de erro com a exceção via log
@@ -227,7 +230,6 @@ def save_df_to_bronze(df: DataFrame, path: str = '/dbfs/FileStore/bronze') -> No
 
 # COMMAND ----------
 
-pip install geopy
 
 # COMMAND ----------
 

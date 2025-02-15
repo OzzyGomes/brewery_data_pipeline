@@ -28,6 +28,8 @@ from pyspark.sql import SparkSession # Importe SparkSession se necessário aqui
 from pyspark.sql.functions import * # Importe funções do PySpark que você usa
 from pyspark.sql.types import * # Importe tipos do PySpark que você usa
 from datetime import datetime
+import sys
+
 
 # COMMAND ----------
 
@@ -57,7 +59,7 @@ silver_breweries_df = spark.sql("select * from delta_bronze where id not in (sel
 
 if silver_breweries_df.isEmpty():
     saida = "There are no new data in the Bronze layer."
-    dbutils.notebook.exit(saida)
+    sys.exit(saida)
 
 # COMMAND ----------
 

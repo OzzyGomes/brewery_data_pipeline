@@ -36,6 +36,7 @@ from pyspark.sql import SparkSession # Importe SparkSession se necessário aqui
 from pyspark.sql.functions import * # Importe funções do PySpark que você usa
 from pyspark.sql.types import * # Importe tipos do PySpark que você usa
 from datetime import datetime
+import sys
 # COMMAND ----------
 
 # MAGIC %md
