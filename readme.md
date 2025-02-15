@@ -197,11 +197,6 @@ For monitoring and alerts of this pipeline, especially in a Databricks environme
 * **Monitoring Metrics (Optional - More Advanced):**
     * For more advanced monitoring, metrics can be collected during pipeline execution (e.g., execution time of each task, resource consumption, etc.) and sent to external monitoring tools (e.g., Prometheus, Grafana) for visualization and more sophisticated alerts.
 
-**Original Response (Mentioned in the Test):**
-
-> This pipeline was designed for Databricks, so I would use the alert system available in Databricks in addition to the traditional and pre-configured job alerts in the jobs themselves. I would use the Databricks custom alert system to create unique conditions. In addition, I would add all stakeholders to be triggered in case of errors or data incompleteness, such as important business data missing in a given load.
-
-This response reflects a solid approach to monitoring in a Databricks environment, focusing on custom alerts and notifications for stakeholders in scenarios of error or data quality issues.
 
 ## Considerations and Trade-offs
 
