@@ -39,6 +39,12 @@ from datetime import datetime
 import sys
 # COMMAND ----------
 
+
+#informations reading e writing
+file_path = 'write the path to the file' 
+save_path = 'write the save path to the file'
+
+
 # MAGIC %md
 # MAGIC ####Starting Code
 spark = SparkSession.builder.appName("BronzePipeline").getOrCreate() # Ajuste o nome do app
@@ -73,7 +79,7 @@ df_api = spark.createDataFrame(api_data)
 
 # COMMAND ----------
 
-df_tabela = spark.read.format('delta').load('dbfs:/dbfs/FileStore/project_breweries/bronze/breweries_202502121744')
+df_tabela = spark.read.format('delta').load(file_path)
 
 # COMMAND ----------
 
@@ -173,4 +179,4 @@ if df_broze.isEmpty():
     sys.exit(saida)
 else:
     #function to save the data in bronze layer
-    save_df_to_bronze(api_data, path='/dbfs/FileStore/project_breweries/bronze')
+    save_df_to_bronze(api_data, path=save_path)

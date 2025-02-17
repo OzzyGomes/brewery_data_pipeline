@@ -34,6 +34,12 @@ from datetime import datetime
 from pyspark.sql.functions import col, trim, when, lit, regexp_replace
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType, DateType
 
+
+
+#informations reading e writing
+file_path = 'write the path to the file' 
+save_path = 'write the save path to the file'
+
 spark = SparkSession.builder.appName("GoldPipeline").getOrCreate()
 # COMMAND ----------
 
@@ -42,7 +48,7 @@ spark = SparkSession.builder.appName("GoldPipeline").getOrCreate()
 
 # COMMAND ----------
 
-gold_breweries_df = spark.read.format("delta").load("/dbfs/FileStore/project_breweries/silver/breweries_delta")
+gold_breweries_df = spark.read.format("delta").load(file_path)
 
 # COMMAND ----------
 

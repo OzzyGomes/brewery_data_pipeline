@@ -36,6 +36,11 @@ import sys
 from pyspark.sql.functions import col, trim, when, lit, regexp_replace
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType, DoubleType, DateType
 
+
+#informations reading e writing
+file_path = 'write the path to the file' 
+save_path = 'write the save path to the file'
+
 spark = SparkSession.builder.appName("SilverPipeline").getOrCreate()
 # COMMAND ----------
 
@@ -45,7 +50,7 @@ spark = SparkSession.builder.appName("SilverPipeline").getOrCreate()
 
 # COMMAND ----------
 
-spark.read.format("delta").load("/dbfs/FileStore/project_breweries/bronze/breweries_202502121744").createOrReplaceTempView('delta_bronze')
+spark.read.format("delta").load(file_path).createOrReplaceTempView('delta_bronze')
 
 # COMMAND ----------
 
@@ -173,7 +178,7 @@ silver_breweries_df.printSchema()
 
 # COMMAND ----------
 
-caminho_silver_delta = "/dbfs/FileStore/project_breweries/silver/breweries_delta" # Define the Path in Your Databricks Environment
+caminho_silver_delta = save_path # Define the Path in Your Databricks Environment
 
 silver_breweries_df.write.format("delta") \
     .mode("append") \
